@@ -1,0 +1,16 @@
+const axios = require('axios')
+
+const api = axios.create({
+  baseURl: 'https://swapi.dev/api/people'
+})
+
+const getPeople = async (name) => {
+  const { data } = await api.get(`/?search=${name}`)
+
+  return data
+}
+
+module.exports = {
+  api,
+  getPeople
+}

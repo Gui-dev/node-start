@@ -14,9 +14,11 @@ describe ('Suite de manipulação de Heróis', () => {
     expect(expected).toEqual(result)
   })
 
-  // it ('deve cadastrar um herói, usando arquivos', async () => {
-  //   const response = DEFAULT_ITEM_CADASTRAR
+  it ('deve cadastrar um herói, usando arquivos', async () => {
+    const expected = DEFAULT_ITEM_CADASTRAR
+    const result = await database.setRegisterHero(DEFAULT_ITEM_CADASTRAR)
+    const [actual] = await database.list(DEFAULT_ITEM_CADASTRAR.id)
 
-  //   expect(response).toEqual(response)
-  // })
+    expect(expected).toEqual(actual)
+  })
 })
